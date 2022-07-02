@@ -55,8 +55,7 @@ class Mu < Formula
     end
 
     # fix lisp file install location
-    mkdir_p "#{share}/emacs/site-lisp/mu"
-    mv "#{share}/emacs/site-lisp/mu4e", "#{share}/emacs/site-lisp/mu/mu4e"
+    elisp.install share/"emacs/site-lisp/mu4e"
   end
 
   # Regression test for:
