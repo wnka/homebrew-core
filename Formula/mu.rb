@@ -49,10 +49,7 @@ class Mu < Formula
 
   def install
     mkdir "build" do
-      args = std_meson_args + %W[
-        -Dlispdir=#{elisp}
-      ]
-      system "meson", *args, ".."
+      system "meson", *std_meson_args, "-Dlispdir=#{elisp}", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
