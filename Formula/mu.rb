@@ -49,13 +49,13 @@ class Mu < Formula
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, ".."
+      args = std_meson_args + %W[
+        -Dlispdir=#{elisp}
+      ]
+      system "meson", *args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
-
-    # fix lisp file install location
-    elisp.install share/"emacs/site-lisp/mu4e"
   end
 
   # Regression test for:
